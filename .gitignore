@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 /ai/test
+/ai/dataset
+/ai/tmp

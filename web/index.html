@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>닮았어,너</title>
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ 
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #camera, #camera--view, #camera--sensor, #camera--output{
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        #camera--view, #camera--sensor, #camera--output{
+            transform: scaleX(-1);
+            filter: FlipH;
+        }
+
+        .button{
+            width: 180px;
+            color: white;
+            background-color: black;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0, 0.2);
+            position: fixed;
+            bottom: 30px;
+        }
+
+
+        .hidden { 
+            display: hidden;
+        }
+    </style>
+</head>
+<body>
+        <header class="flex w-screen p-5 justify-center bg-black text-white font-bold text-xl">
+            <h1>당신과 닮은 Animal~ 찾아줍니다!</h1>
+        </header>
+        
+        <main id="camera" class="flex justify-center bg-black border-none">
+            
+            <canvas id="camera--sensor"></canvas>
+    
+            <video id="camera--view" autoplay playsinline></video>
+
+            <div id="result" class="hidden flex p-40 text-center flex-col">
+                <div class="flex flex-row rounded-[60px] border-4 border-white overflow-hidden">
+                <img src="" alt="" class="w-[300px] h-[300px] camera--output ">
+                    <img class="pred--output w-[300px] h-[300px]" src="" alt="." />
+                </div>
+                <!-- <h3 class="m-20 label text-white font-medium text-5xl m-2">WOW</h3> -->
+            </div>
+            
+
+            <button id="camera--trigger" class=" button">사진촬영</button>
+            <button class="restart button hidden">다시시도</button>
+
+        </main>
+
+
+</body>
+<script src="./script.js"></script>
+</html>
