@@ -45,18 +45,18 @@ cameraTrigger.addEventListener("click", function(){
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
 
     
-    axios.post('http://localhost:5000/predict', {
+    axios.post('https://8c4c-119-194-35-226.jp.ngrok.io/predict', {
         image: cameraSensor.toDataURL(),
     },  {
         "Content-Type": "application/json",
     })
     .then(function (response) {
-        console.log(response);
+        // console.log(response);///
         resultContainer.classList.remove("hidden")
         cameraSensor.classList.add("hidden")
         predictionOutput.src = response.data.body.url
         // predictionLabel.innerText = response.data.body.player_name
-        // predictionLabel.innerText = String((response.data.body.confidence)*100) + "%"
+        // predictionLabel.innerTex String((response.data.body.confidence)*100) + "%"
     })
     .catch(function (error) {
         console.log(error);

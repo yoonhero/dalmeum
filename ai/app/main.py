@@ -10,7 +10,7 @@ from inference import inference
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
-
+app.config.from_pyfile('config.py')
 # api = Api(app)
 
 ALLOWED_EXTENSIONS = {'png', "jpg", "jpeg"}
@@ -52,4 +52,4 @@ def predict():
     })
 
 if __name__ == "__main__":
-    app.run("localhost", 5000, debug=True)
+    app.run("localhost", 5000, debug=False)
